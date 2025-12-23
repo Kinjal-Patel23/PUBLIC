@@ -28,7 +28,7 @@ const AddBlog = () => {
       })
       .then(() => {
         alert("Blog added successfully");
-        navigate("/blogs"); // redirect to blog list
+        navigate("/blogs");
       })
       .catch(() => {
         alert("Error adding blog");
@@ -36,47 +36,57 @@ const AddBlog = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-6 bg-white p-6 shadow rounded">
-      <h2 className="text-xl font-bold mb-4">Add Blog</h2>
+    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-pink-100 via-gray-100 to-pink-50 px-4">
+      <div className="w-full max-w-xl bg-white p-8 rounded-2xl shadow-xl">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-2">
+          Add New Blog
+        </h2>
+        <p className="text-center text-gray-500 mb-6">
+          Share your thoughts with the world
+        </p>
 
-      <input
-        type="text"
-        placeholder="Blog Title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        className="w-full mb-3 p-2 border rounded"
-      />
+        <div className="space-y-4">
+          <input
+            type="text"
+            placeholder="Blog Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300 transition"
+          />
 
-      <input
-        type="text"
-        placeholder="Image URL"
-        value={image}
-        onChange={(e) => setImage(e.target.value)}
-        className="w-full mb-3 p-2 border rounded"
-      />
+          <input
+            type="text"
+            placeholder="Image URL"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300 transition"
+          />
 
-      <textarea
-        placeholder="Description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        className="w-full mb-3 p-2 border rounded"
-      />
+          <textarea
+            placeholder="Blog Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            rows="4"
+            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300 transition resize-none"
+          />
 
-      <select
-        value={status}
-        onChange={(e) => setStatus(e.target.value)}
-        className="w-full mb-4 p-2 border rounded"
-      >
-        <option>Draft</option>
-        <option>Published</option>
-      </select>
+          <select
+            value={status}
+            onChange={(e) => setStatus(e.target.value)}
+            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300 transition bg-white"
+          >
+            <option>Draft</option>
+            <option>Published</option>
+          </select>
+        </div>
 
-      <button
-        onClick={handleSubmit}
-        className="w-full bg-blue-600 text-white p-2 rounded"
-      >
-        Submit Blog
-      </button>
+        <button
+          onClick={handleSubmit}
+          className="w-full mt-6 bg-pink-500 text-white py-3 rounded-lg font-semibold hover:bg-pink-600 transition shadow-md"
+        >
+          Submit Blog
+        </button>
+      </div>
     </div>
   );
 };
